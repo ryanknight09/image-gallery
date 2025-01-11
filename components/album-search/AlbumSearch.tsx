@@ -19,7 +19,7 @@ export const AlbumSearch = () => {
     }
 
     router.replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 200);
 
   return (
     <Input
