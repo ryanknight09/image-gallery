@@ -1,5 +1,5 @@
-export type AlbumResponse = {
-  data?: Album[] | undefined;
+export type AlbumResponse<T> = {
+  data?: T | undefined;
   success: boolean;
   status: number;
 };

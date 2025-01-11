@@ -1,35 +1,20 @@
-"use client";
+import { cn } from "@/lib/utils";
+import { type RouterType } from "@/types/Search";
+import { AlbumFilter } from "./AlbumFilter";
+import { AlbumSearchInput } from "./AlbumSearchInput";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
-import { Input } from "../ui/input";
+interface Props extends RouterType {
+  className?: string;
+}
 
-export const AlbumSearch = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const handleSearch = useDebouncedCallback((term: string) => {
-    const params = new URLSearchParams(searchParams);
-
-    if (term) {
-      params.set("term", term);
-    } else {
-      params.delete("term");
-    }
-
-    router.replace(`${pathname}?${params.toString()}`);
-  }, 200);
-
+export const AlbumSearch = ({ className, routerType }: Props) => {
   return (
-    <Input
-      placeholder="Search..."
-      className="max-w-md"
-      type="search"
-      defaultValue={searchParams.get("term")?.toString()}
-      onChange={(e) => {
-        handleSearch(e.target.value);
-      }}
-    />
+    <div className={cn("flex flex-col gap-2", className)}>
+      <h3 className="text-xl font-bold text-left">Search More Albums</h3>
+      <div className="flex gap-4">
+        <AlbumSearchInput routerType={routerType} />
+        <AlbumFilter />
+      </div>
+    </div>
   );
 };

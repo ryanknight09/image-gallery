@@ -1,4 +1,4 @@
-import { type AlbumResponse } from "@/types/Album";
+import { type Album, type AlbumResponse } from "@/types/Album";
 
 interface Props {
   searchParams?: {
@@ -24,7 +24,7 @@ export const getAlbums = async ({ searchParams }: Props) => {
     },
   });
 
-  const responseJson: AlbumResponse = await response.json();
+  const responseJson: AlbumResponse<Album[]> = await response.json();
   const albums = responseJson.data ?? [];
 
   return albums.filter((album) => album.images_count > 0);

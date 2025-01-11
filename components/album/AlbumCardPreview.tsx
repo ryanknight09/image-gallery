@@ -12,7 +12,7 @@ export const AlbumCardPreview = ({ album }: Props) => {
     <Link
       href={`/album/${album.id}`}
       key={album.id}
-      className="flex flex-col items-center gap-4 aspect-video mb-12 group"
+      className="flex flex-col items-center gap-4 aspect-video mb-4 group"
     >
       <AlbumCover src={album.images[0].link} />
       <div className="flex flex-col justify-start w-full">

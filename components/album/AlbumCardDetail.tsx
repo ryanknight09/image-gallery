@@ -12,7 +12,7 @@ export const AlbumCardDetail = ({ album }: Props) => {
     <Link
       href={`/album/${album.id}`}
       key={album.id}
-      className="flex gap-4 group"
+      className="flex gap-4 group lg:w-full"
     >
       <AlbumCover
         src={album.images[0].link}
