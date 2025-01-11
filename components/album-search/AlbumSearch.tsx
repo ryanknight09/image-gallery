@@ -26,7 +26,7 @@ export const AlbumSearch = () => {
       placeholder="Search..."
       className="max-w-md"
       type="search"
-      defaultValue={searchParams.get("search")?.toString()}
+      defaultValue={searchParams.get("term")?.toString()}
       onChange={(e) => {
         handleSearch(e.target.value);
       }}

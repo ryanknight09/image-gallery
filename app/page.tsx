@@ -32,14 +32,16 @@ export default async function Page(props: Props) {
   const responseJson: AlbumResponse = await response.json();
   const albums = responseJson.data ?? [];
 
+  console.log(albums.filter((album) => album.is_album)[0]);
+
   return (
-    <div className="container mx-auto p-8 pb-20 flex flex-col gap-8 h-full sm:p-20">
+    <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 h-full px-4 sm:px-20 md:px-8 2xl:px-8">
       <h1 className="text-5xl font-bold text-center">Album Glossary</h1>
       <div className="flex justify-center items-center gap-4">
         <AlbumSearch />
         <AlbumFilter />
       </div>
       <Albums albums={albums} />
-    </div>
+    </main>
   );
 }
