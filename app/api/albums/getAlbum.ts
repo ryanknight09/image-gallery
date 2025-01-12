@@ -5,17 +5,27 @@ interface Props {
 }
 
 export const getAlbum = async ({ albumId }: Props) => {
-  const response = await fetch(`https://api.imgur.com/3/album/${albumId}`, {
-    method: "GET",
-    headers: {
-      Authorization: `Client-ID ${process.env.AUTHORIZATION_KEY}`,
-    },
-  });
+  try {
+    const response = await fetch(`https://api.imgur.com/3/album/${albumId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Client-ID ${process.env.AUTHORIZATION_KEY}`,
+      },
+    });
 
-  const responseJson: AlbumResponse<Album> = await response.json();
-  const album = responseJson.data;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch album. Status: ${response.status}`);
+    }
 
-  //   console.log(album);
+    const responseJson: AlbumResponse<Album> = await response.json();
 
-  return album;
+    if (!responseJson.data) {
+      throw new Error("No album data found in the response");
+    }
+
+    return responseJson.data;
+  } catch (error) {
+    console.error("Error fetching album:", error);
+    throw new Error("An error occurred while fetching the album.");
+  }
 };

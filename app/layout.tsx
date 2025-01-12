@@ -1,5 +1,6 @@
 import { TailwindIndicator } from "@/components/theme/TailwindIndicator";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Ruda } from "next/font/google";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${ruda.className} antialiased scroll-smooth h-screen`}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           {children}
+          <Toaster />
         </ThemeProvider>
         <TailwindIndicator />
       </body>

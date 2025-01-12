@@ -27,8 +27,6 @@ export default async function Page({ params, ...rest }: Props) {
     notFound();
   }
 
-  console.log(searchParams?.openImage);
-
   return (
     <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 h-full px-8 sm:px-20 md:px-8 2xl:px-8">
       <AlbumSearch className="lg:hidden" routerType="push" />
