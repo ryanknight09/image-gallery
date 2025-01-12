@@ -28,7 +28,7 @@ export default async function Page({ params, ...rest }: Props) {
   }
 
   return (
-    <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 h-full px-8 sm:px-20 md:px-8 2xl:px-8 min-h-dvh">
+    <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 px-8 sm:px-20 md:px-8 2xl:px-8 min-h-dvh h-dvh">
       <AlbumSearch className="lg:hidden" routerType="push" />
       <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-1">
