@@ -50,7 +50,7 @@ export const ExpandableImage = ({ image, openImage }: Props) => {
         </button>
       </DialogTrigger>
       <DialogContent
-        className="h-screen max-w-screen p-10"
+        className="h-dvh max-w-screen p-10"
         onCloseAutoFocus={onClose}
       >
         <VisuallyHidden>
