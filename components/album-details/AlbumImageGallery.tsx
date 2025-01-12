@@ -8,12 +8,13 @@ import { cn } from "@/lib/utils";
 import { type Image } from "@/types/Album";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { AlbumCover } from "../album/AlbumCover";
+import { ViewCountAndDate } from "../ViewCountAndDate";
 
 interface Props {
   images: Image[];
 }
 
-export const ImageGallery = ({ images }: Props) => {
+export const AlbumImageGallery = ({ images }: Props) => {
   const imageCount = images.length;
 
   return (
@@ -33,13 +34,8 @@ export const ImageGallery = ({ images }: Props) => {
               key={image.id}
               className="flex flex-col items-center gap-3 aspect-video transition-transform hover:scale-105 py-3 rounded-xl"
             >
-              <AlbumCover src={image.link} className="" />
-              <div className="flex flex-col justify-start w-full text-sm text-muted-foreground">
-                <p>
-                  {image.views} Views •{" "}
-                  {new Date(image.datetime * 1000).toLocaleDateString()}
-                </p>
-              </div>
+              <AlbumCover src={image.link} />
+              <ViewCountAndDate views={image.views} dateTime={image.datetime} />
             </button>
           </DialogTrigger>
           <DialogContent className="h-screen max-w-screen p-10">

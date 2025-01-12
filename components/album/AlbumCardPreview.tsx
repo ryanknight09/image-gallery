@@ -1,6 +1,7 @@
 import { type Album } from "@/types/Album";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
 import Link from "next/link";
+import { Likes } from "../Likes";
+import { ViewCountAndDate } from "../ViewCountAndDate";
 import { AlbumCover } from "./AlbumCover";
 
 interface Props {
@@ -20,21 +21,9 @@ export const AlbumCardPreview = ({ album }: Props) => {
         <div className="flex items-center justify-between">
           <div className="text-sm text-muted-foreground mt-2">
             <p>{album.account_url}</p>
-            <p>
-              {album.comment_count} Views •{" "}
-              {new Date(album.datetime * 1000).toLocaleDateString()}
-            </p>
+            <ViewCountAndDate views={album.views} dateTime={album.datetime} />
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <ThumbsUp className="h-4 w-4" />
-              <span>{album.ups}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ThumbsDown className="h-4 w-4" />
-              <span>{album.downs}</span>
-            </div>
-          </div>
+          <Likes likes={album.ups} dislikes={album.downs} />
         </div>
       </div>
     </Link>

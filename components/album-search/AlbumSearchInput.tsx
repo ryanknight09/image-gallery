@@ -21,8 +21,6 @@ export const AlbumSearchInput = ({ routerType = "replace" }: Props) => {
       params.delete("term");
     }
 
-    console.log({ pathname });
-
     if (routerType === "replace") {
       router.replace(`${pathname}?${params.toString()}`);
     } else {

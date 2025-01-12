@@ -1,6 +1,7 @@
 import { getAlbum } from "@/app/api/albums/getAlbum";
 import { getAlbums } from "@/app/api/albums/getAlbums";
-import { ImageGallery } from "@/components/album-carousel/ImageGallery";
+import { AlbumImageGallery } from "@/components/album-details/AlbumImageGallery";
+import { AlbumHeader } from "@/components/album-details/ImageHeader";
 import { AlbumSearch } from "@/components/album-search/AlbumSearch";
 import { AlbumCardDetail } from "@/components/album/AlbumCardDetail";
 import { Separator } from "@/components/ui/separator";
@@ -30,13 +31,8 @@ export default async function Page({ params, ...rest }: Props) {
       <AlbumSearch className="lg:hidden" routerType="push" />
       <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-1">
-          <h1 className="text-3xl font-bold line-clamp-2">{album.title}</h1>
-          <p className="text-lg">{album.account_url}</p>
-          <p className="text-sm text-muted-foreground mb-8">
-            {album.views} Gallery views •{" "}
-            {new Date(album.datetime * 1000).toLocaleDateString()}
-          </p>
-          <ImageGallery images={album.images} />
+          <AlbumHeader {...album} />
+          <AlbumImageGallery images={album.images} />
         </div>
         <div className="lg:flex flex-col gap-8 lg:max-w-md hidden">
           <Separator className="lg:hidden" />
