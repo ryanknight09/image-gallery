@@ -41,7 +41,7 @@ export default async function Page({ params, ...rest }: Props) {
         <div className="lg:flex flex-col gap-8 lg:max-w-md hidden">
           <Separator className="lg:hidden" />
           <AlbumSearch />
-          <div className="grid grid-cols-1 gap-3 border-l pl-8">
+          <div className="grid grid-cols-1 gap-3 border-l pl-8 pb-20">
             {albums.map((album) => (
               <AlbumCardDetail key={album.id} album={album} />
             ))}
