@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed on Vercel
 
-If you would like to view a deployed version of this app, you can find it [here](https://image-gallery-ten.vercel.app/).
+If you would like to view a deployed version of this app, you can find it [here](https://image-gallery-chi-lovat.vercel.app/).
 
 Retrospective:
 
