@@ -14,9 +14,9 @@ export const AlbumCover = ({ src, className }: Props) => {
     return (
       <video
         controls
-        preload="none"
+        preload="metadata"
         muted
-        autoPlay
+        autoPlay={false}
         className={cn(
           "object-cover h-full w-full min-h-[200px] overflow-y-auto rounded-lg",
           className
