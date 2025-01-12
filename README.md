@@ -38,4 +38,4 @@ Retrospective:
 
 - I had to switch on link strings to check for them being an image or a video. This is why the AlbumCover component came to be.
 
-- Overall, this is a fairly straightforward app. As I'm not a designer, the design process slowed me down, especially since it was done in code. If I had more time, I would have added a more cohesive design system. Still, I believe this is a solid starting point.
+- Overall, this is a fairly straightforward app. As I'm not a designer, the design process slowed me down, especially since it was done in code. If I had more time, I would have added a more cohesive design system. Still, I believe this is a solid starting point. My commits got less organized that usual. This seems to always happen when designing in code. A nice requirements road map, makes for good commits.
