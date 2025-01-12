@@ -19,10 +19,10 @@ export const AlbumCardDetail = ({ album }: Props) => {
         src={album.images[0].link}
         className="min-w-44 w-44 aspect-video h-auto min-h-0"
       />
-      <div className="flex flex-col justify-start w-full">
+      <div className="flex flex-col justify-start w-full overflow-hidden">
         <h3 className="text-sm font-semibold line-clamp-2">{album.title}</h3>
         <div className="text-muted-foreground mt-3">
-          <p>{album.account_url}</p>
+          <p className="truncate">{album.account_url}</p>
           <ViewCountAndDate
             views={album.views}
             dateTime={album.datetime}

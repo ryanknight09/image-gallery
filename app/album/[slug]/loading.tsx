@@ -20,10 +20,7 @@ export default async function Page() {
         </div>
         <div className="lg:flex flex-col gap-8 lg:max-w-md hidden">
           <Separator className="lg:hidden" />
-          <div className="space-y-2">
-            <p>Search More Albums</p>
-            <SkeletonSearchInput />
-          </div>
+          <SkeletonSearchInput />
           <div className="grid grid-cols-1 gap-3 pl-8">
             {Array.from({ length: 30 }, (_, index) => index + 1).map(
               (index) => (
