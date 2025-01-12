@@ -28,22 +28,20 @@ export default async function Page({ params, ...rest }: Props) {
   return (
     <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 h-full px-8 sm:px-20 md:px-8 2xl:px-8">
       <AlbumSearch className="lg:hidden" routerType="push" />
-      <div>
-        <h1 className="text-3xl font-bold line-clamp-2">{album.title}</h1>
-        <p className="text-lg">{album.account_url}</p>
-        <p className="text-sm text-muted-foreground">
-          {album.views} Gallery views •{" "}
-          {new Date(album.datetime * 1000).toLocaleDateString()}
-        </p>
-      </div>
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-1">
+          <h1 className="text-3xl font-bold line-clamp-2">{album.title}</h1>
+          <p className="text-lg">{album.account_url}</p>
+          <p className="text-sm text-muted-foreground mb-8">
+            {album.views} Gallery views •{" "}
+            {new Date(album.datetime * 1000).toLocaleDateString()}
+          </p>
           <ImageGallery images={album.images} />
         </div>
         <div className="lg:flex flex-col gap-8 lg:max-w-md hidden">
           <Separator className="lg:hidden" />
           <AlbumSearch />
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-3 border-l pl-8">
             {albums.map((album) => (
               <AlbumCardDetail key={album.id} album={album} />
             ))}

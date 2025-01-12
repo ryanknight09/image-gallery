@@ -12,7 +12,7 @@ export const AlbumCardDetail = ({ album }: Props) => {
     <Link
       href={`/album/${album.id}`}
       key={album.id}
-      className="flex gap-4 group lg:w-full"
+      className="flex gap-4 group lg:w-full transition-transform hover:scale-105 p-4 rounded-xl bg-secondary/50"
     >
       <AlbumCover
         src={album.images[0].link}
@@ -20,7 +20,7 @@ export const AlbumCardDetail = ({ album }: Props) => {
       />
       <div className="flex flex-col justify-start w-full">
         <h3 className="text-sm font-semibold line-clamp-2">{album.title}</h3>
-        <div className="text-xs text-muted-foreground mt-auto">
+        <div className="text-xs text-muted-foreground mt-3">
           <p>{album.account_url}</p>
           <p>
             {album.comment_count} Views •{" "}

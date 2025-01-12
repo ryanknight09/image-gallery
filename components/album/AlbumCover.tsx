@@ -3,6 +3,7 @@ import Image from "next/image";
 
 interface Props {
   src: string;
+  objectFit?: string;
   className?: string;
 }
 
@@ -17,7 +18,7 @@ export const AlbumCover = ({ src, className }: Props) => {
         muted
         autoPlay
         className={cn(
-          "border object-scale-down h-full w-full min-h-[200px] overflow-y-auto rounded-lg transition-transform duration-300 group-hover:scale-105",
+          "object-cover h-full w-full min-h-[200px] overflow-y-auto rounded-lg",
           className
         )}
       >
@@ -28,7 +29,7 @@ export const AlbumCover = ({ src, className }: Props) => {
   return (
     <div
       className={cn(
-        "relative h-full w-full min-h-[200px] border rounded-lg",
+        "relative h-full w-full min-h-[200px] rounded-lg",
         className
       )}
     >
@@ -37,7 +38,7 @@ export const AlbumCover = ({ src, className }: Props) => {
         src={src}
         fill
         priority
-        className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+        className={cn("object-cover rounded-lg", className)}
       />
     </div>
   );
