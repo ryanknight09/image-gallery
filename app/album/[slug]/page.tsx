@@ -12,6 +12,7 @@ interface Props {
   searchParams?: Promise<{
     term?: string;
     filter?: string;
+    openImage?: string;
   }>;
 }
 
@@ -26,13 +27,18 @@ export default async function Page({ params, ...rest }: Props) {
     notFound();
   }
 
+  console.log(searchParams?.openImage);
+
   return (
     <main className="3xl:container mx-auto py-8 pb-20 flex flex-col gap-8 h-full px-8 sm:px-20 md:px-8 2xl:px-8">
       <AlbumSearch className="lg:hidden" routerType="push" />
       <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-1">
           <AlbumHeader {...album} />
-          <AlbumImageGallery images={album.images} />
+          <AlbumImageGallery
+            images={album.images}
+            openImage={searchParams?.openImage}
+          />
         </div>
         <div className="lg:flex flex-col gap-8 lg:max-w-md hidden">
           <Separator className="lg:hidden" />

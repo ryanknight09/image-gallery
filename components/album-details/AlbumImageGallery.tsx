@@ -1,20 +1,13 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { type Image } from "@/types/Album";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { AlbumCover } from "../album/AlbumCover";
-import { ViewCountAndDate } from "../ViewCountAndDate";
+import { ExpandableImage } from "../ExpandableImage";
 
 interface Props {
   images: Image[];
+  openImage?: string;
 }
 
-export const AlbumImageGallery = ({ images }: Props) => {
+export const AlbumImageGallery = ({ images, openImage }: Props) => {
   const imageCount = images.length;
 
   return (
@@ -28,23 +21,7 @@ export const AlbumImageGallery = ({ images }: Props) => {
       )}
     >
       {images.map((image) => (
-        <Dialog key={image.id}>
-          <DialogTrigger asChild>
-            <button
-              key={image.id}
-              className="flex flex-col items-center gap-3 aspect-video transition-transform hover:scale-105 py-3 rounded-xl"
-            >
-              <AlbumCover src={image.link} />
-              <ViewCountAndDate views={image.views} dateTime={image.datetime} />
-            </button>
-          </DialogTrigger>
-          <DialogContent className="h-screen max-w-screen p-10">
-            <VisuallyHidden>
-              <DialogTitle />
-            </VisuallyHidden>
-            <AlbumCover src={image.link} className="object-scale-down" />
-          </DialogContent>
-        </Dialog>
+        <ExpandableImage key={image.id} image={image} openImage={openImage} />
       ))}
     </div>
   );
