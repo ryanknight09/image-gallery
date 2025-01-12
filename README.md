@@ -38,4 +38,4 @@ Retrospective:
 
 - I had to switch on link strings to check for them being an image or a video. This is why the AlbumCover component came to be.
 
-- Overall, this is a fairly straightforward app. As I'm not a designer, the design process slowed me down, especially since it was done in code. If I had more time, I would have added a more cohesive design system. Still, I believe this is a solid starting point. My commits got less organized that usual. This seems to always happen when designing in code. A nice requirements road map, makes for good commits.
+- Mobile considerations should also be further made. For example auto play is cool on desktop but it causes a bug on mobile where random video will play or take your full screen. I would detect device type use te user agent and make the video auto play only on desktop. Also there is no image field from the api when the image is a mp4. This is poor since I cannot load a poster attribute on the video. I would have extract an image from the video link or something like that.

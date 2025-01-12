@@ -23,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${ruda.className} antialiased scroll-smooth h-screen`}>
+      <body
+        className={`${ruda.className} antialiased scroll-smooth min-h-dvh h-screen`}
+      >
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           <AppHeader />
           {children}
