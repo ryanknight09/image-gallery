@@ -35,7 +35,7 @@ export const getAlbums = async ({ searchParams }: Props) => {
       throw new Error("No album data found in the response");
     }
 
-    return responseJson.data.filter((album) => album.images_count > 3);
+    return responseJson.data.filter((album) => album.images_count > 0);
   } catch (error) {
     console.error("Error fetching albums:", error);
     throw new Error("An error occurred while fetching the albums.");

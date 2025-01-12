@@ -1,3 +1,4 @@
+import { AppHeader } from "@/components/AppHeader";
 import { TailwindIndicator } from "@/components/theme/TailwindIndicator";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${ruda.className} antialiased scroll-smooth h-screen`}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+          <AppHeader />
           {children}
           <Toaster />
         </ThemeProvider>
